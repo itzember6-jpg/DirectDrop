@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - PUT XYZ</title>
+    
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+    <!-- ============================== -->
+    <!--        TOP HEADER BAR          -->
+    <!-- ============================== -->
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <span><i class="fas fa-shipping-fast"></i> Free Shipping on orders on any order above 500rs </span>
+            </div>
+            <div class="top-header-right">
+                <a href="login.html"><i class="fas fa-user"></i> Sign In</a>
+                <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                <div class="currency-selector">
+                    <span><i class="fas fa-dollar-sign"></i> USD</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="language-selector">
+                    <span><i class="fas fa-globe"></i> EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--        MAIN HEADER / NAV       -->
+    <!-- ============================== -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html">
+                    <h1>PUT <span>XYZ</span></h1>
+                </a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="searchInput" />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <a href="wishlist.html" class="action-icon">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="compare.html" class="action-icon">
+                    <i class="fas fa-chart-simple"></i>
+                </a>
+                <a href="cart.html" class="action-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== -->
+    <!--      DASHBOARD SECTION         -->
+    <!-- ============================== -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-wrapper">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <!-- User Profile Card -->
+                    <div class="user-card">
+                        <div class="user-avatar">
+                            <!-- IMAGE: user-avatar.jpg -->
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="online-status"></span>
+                        </div>
+                        <h3>John Doe</h3>
+                        <p>john.doe@email.com</p>
+                        <div class="user-badge">
+                            <i class="fas fa-crown"></i> Premium Member
+                        </div>
+                    </div>
+
+                    <!-- Navigation Menu -->
+                    <nav class="dashboard-nav">
+                        <ul>
+                            <li class="active" data-section="profile">
+                                <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            </li>
+                            <li data-section="orders">
+                                <a href="#"><i class="fas fa-box"></i> Orders</a>
+                                <span class="nav-badge">3</span>
+                            </li>
+                            <li data-section="wishlist">
+                                <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+                                <span class="nav-badge">5</span>
+                            </li>
+                            <li data-section="addresses">
+                                <a href="#"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+                            </li>
+                            <li data-section="cards">
+                                <a href="#"><i class="fas fa-credit-card"></i> Saved Cards</a>
+                            </li>
+                            <li data-section="payments">
+                                <a href="#"><i class="fas fa-wallet"></i> Payment Methods</a>
+                            </li>
+                            <li data-section="coupons">
+                                <a href="#"><i class="fas fa-ticket-alt"></i> Coupons</a>
+                                <span class="nav-badge">2</span>
+                            </li>
+                            <li data-section="gift-cards">
+                                <a href="#"><i class="fas fa-gift"></i> Gift Cards</a>
+                            </li>
+                            <li data-section="rewards">
+                                <a href="#"><i class="fas fa-star"></i> Reward Points</a>
+                                <span class="nav-badge">1,250</span>
+                            </li>
+                            <li data-section="wallet">
+                                <a href="#"><i class="fas fa-coins"></i> Wallet</a>
+                            </li>
+                            <li data-section="notifications">
+                                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                                <span class="nav-badge">4</span>
+                            </li>
+                            <li data-section="reviews">
+                                <a href="#"><i class="fas fa-star"></i> Reviews</a>
+                            </li>
+                            <li data-section="returns">
+                                <a href="#"><i class="fas fa-undo"></i> Returns</a>
+                            </li>
+                            <li data-section="downloads">
+                                <a href="#"><i class="fas fa-download"></i> Downloads</a>
+                            </li>
+                            <li data-section="security">
+                                <a href="#"><i class="fas fa-shield-alt"></i> Security</a>
+                            </li>
+                            <li class="logout" data-section="logout">
+                                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="dashboard-content">
+                    <!-- ======================================== -->
+                    <!-- PROFILE SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-profile" class="dashboard-section-content active">
+                        <div class="section-header">
+                            <h2>My Profile</h2>
+                            <button class="btn-edit" onclick="editProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
+                        </div>
+                        <div class="profile-details">
+                            <div class="profile-row">
+                                <div class="profile-item">
+                                    <label>Full Name</label>
+                                    <p>John Doe</p>
+                                </div>
+                                <div class="profile-item">
+                                    <label>Username</label>
+                                    <p>johndoe</p>
+                                </div>
+                            </div>
+                            <div class="profile-row">
+                                <div class="profile-item">
+                                    <label>Email Address</label>
+                                    <p>john.doe@email.com</p>
+                                </div>
+                                <div class="profile-item">
+                                    <label>Phone Number</label>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="profile-row">
+                                <div class="profile-item">
+                                    <label>Gender</label>
+                                    <p>Male</p>
+                                </div>
+                                <div class="profile-item">
+                                    <label>Date of Birth</label>
+                                    <p>January 15, 1990</p>
+                                </div>
+                            </div>
+                            <div class="profile-row">
+                                <div class="profile-item">
+                                    <label>Address</label>
+                                    <p>123 Main Street, Apt 4B, New York, NY 10001</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-primary" onclick="changePassword()"><i class="fas fa-key"></i> Change Password</button>
+                            <button class="btn btn-danger" onclick="deleteAccount()"><i class="fas fa-trash"></i> Delete Account</button>
+                            <button class="btn btn-secondary" onclick="enable2FA()"><i class="fas fa-shield-alt"></i> Two-Factor Authentication</button>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- ORDERS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-orders" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>My Orders</h2>
+                            <div class="order-filters">
+                                <button class="filter-btn active">All</button>
+                                <button class="filter-btn">Processing</button>
+                                <button class="filter-btn">Shipped</button>
+                                <button class="filter-btn">Delivered</button>
+                                <button class="filter-btn">Cancelled</button>
+                            </div>
+                        </div>
+                        <div class="orders-list">
+                            <!-- Order 1 -->
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-info">
+                                        <span class="order-id">#ORD-2024-001</span>
+                                        <span class="order-date"><i class="far fa-calendar-alt"></i> Dec 15, 2024</span>
+                                    </div>
+                                    <span class="order-status delivered">Delivered</span>
+                                </div>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <!-- IMAGE: product-1.jpg -->
+                                        <div class="item-image"><i class="fas fa-image"></i></div>
+                                        <div class="item-details">
+                                            <h4>Wireless Bluetooth Headphones</h4>
+                                            <p>Quantity: 1</p>
+                                            <span class="item-price">$89.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item">
+                                        <!-- IMAGE: product-3.jpg -->
+                                        <div class="item-image"><i class="fas fa-image"></i></div>
+                                        <div class="item-details">
+                                            <h4>Premium Leather Backpack</h4>
+                                            <p>Quantity: 1</p>
+                                            <span class="item-price">$79.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-footer">
+                                    <span class="order-total">Total: $169.98</span>
+                                    <div class="order-actions">
+                                        <button class="btn-order"><i class="fas fa-eye"></i> View Details</button>
+                                        <button class="btn-order"><i class="fas fa-undo"></i> Return</button>
+                                        <button class="btn-order"><i class="fas fa-file-invoice"></i> Invoice</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order 2 -->
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-info">
+                                        <span class="order-id">#ORD-2024-002</span>
+                                        <span class="order-date"><i class="far fa-calendar-alt"></i> Dec 10, 2024</span>
+                                    </div>
+                                    <span class="order-status shipped">Shipped</span>
+                                </div>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <!-- IMAGE: product-2.jpg -->
+                                        <div class="item-image"><i class="fas fa-image"></i></div>
+                                        <div class="item-details">
+                                            <h4>Smart Fitness Watch</h4>
+                                            <p>Quantity: 1</p>
+                                            <span class="item-price">$149.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-footer">
+                                    <span class="order-total">Total: $149.99</span>
+                                    <div class="order-actions">
+                                        <button class="btn-order"><i class="fas fa-eye"></i> View Details</button>
+                                        <button class="btn-order"><i class="fas fa-truck"></i> Track Order</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order 3 -->
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-info">
+                                        <span class="order-id">#ORD-2024-003</span>
+                                        <span class="order-date"><i class="far fa-calendar-alt"></i> Dec 5, 2024</span>
+                                    </div>
+                                    <span class="order-status processing">Processing</span>
+                                </div>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <!-- IMAGE: product-4.jpg -->
+                                        <div class="item-image"><i class="fas fa-image"></i></div>
+                                        <div class="item-details">
+                                            <h4>Wireless Charging Pad</h4>
+                                            <p>Quantity: 2</p>
+                                            <span class="item-price">$34.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-footer">
+                                    <span class="order-total">Total: $69.98</span>
+                                    <div class="order-actions">
+                                        <button class="btn-order"><i class="fas fa-eye"></i> View Details</button>
+                                        <button class="btn-order"><i class="fas fa-times"></i> Cancel Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pagination">
+                            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- WISHLIST SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-wishlist" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>My Wishlist</h2>
+                            <span class="wishlist-count">5 items</span>
+                        </div>
+                        <div class="wishlist-grid">
+                            <!-- Wishlist Item 1 -->
+                            <div class="wishlist-item">
+                                <!-- IMAGE: product-5.jpg -->
+                                <div class="wishlist-image"><i class="fas fa-image"></i></div>
+                                <div class="wishlist-info">
+                                    <h4>4K Action Camera</h4>
+                                    <p class="wishlist-price">$199.99</p>
+                                    <div class="wishlist-actions">
+                                        <button class="btn-wishlist primary"><i class="fas fa-shopping-cart"></i> Move to Cart</button>
+                                        <button class="btn-wishlist danger"><i class="fas fa-trash"></i> Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Wishlist Item 2 -->
+                            <div class="wishlist-item">
+                                <!-- IMAGE: product-6.jpg -->
+                                <div class="wishlist-image"><i class="fas fa-image"></i></div>
+                                <div class="wishlist-info">
+                                    <h4>Mechanical Keyboard</h4>
+                                    <p class="wishlist-price">$129.99</p>
+                                    <div class="wishlist-actions">
+                                        <button class="btn-wishlist primary"><i class="fas fa-shopping-cart"></i> Move to Cart</button>
+                                        <button class="btn-wishlist danger"><i class="fas fa-trash"></i> Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Wishlist Item 3 -->
+                            <div class="wishlist-item">
+                                <!-- IMAGE: product-7.jpg -->
+                                <div class="wishlist-image"><i class="fas fa-image"></i></div>
+                                <div class="wishlist-info">
+                                    <h4>Smart Home Hub</h4>
+                                    <p class="wishlist-price">$89.99</p>
+                                    <div class="wishlist-actions">
+                                        <button class="btn-wishlist primary"><i class="fas fa-shopping-cart"></i> Move to Cart</button>
+                                        <button class="btn-wishlist danger"><i class="fas fa-trash"></i> Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wishlist-actions-all">
+                            <button class="btn btn-secondary"><i class="fas fa-share-alt"></i> Share Wishlist</button>
+                            <button class="btn btn-primary"><i class="fas fa-bell"></i> Stock Alerts</button>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- ADDRESSES SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-addresses" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>My Addresses</h2>
+                            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add New Address</button>
+                        </div>
+                        <div class="addresses-grid">
+                            <div class="address-card">
+                                <div class="address-type">
+                                    <i class="fas fa-home"></i> Home
+                                    <span class="default-badge">Default</span>
+                                </div>
+                                <p class="address-name">John Doe</p>
+                                <p>123 Main Street, Apt 4B</p>
+                                <p>New York, NY 10001</p>
+                                <p>United States</p>
+                                <p class="address-phone"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                                <div class="address-actions">
+                                    <button class="btn-edit-address"><i class="fas fa-edit"></i> Edit</button>
+                                    <button class="btn-delete-address"><i class="fas fa-trash"></i> Delete</button>
+                                </div>
+                            </div>
+                            <div class="address-card">
+                                <div class="address-type">
+                                    <i class="fas fa-briefcase"></i> Work
+                                </div>
+                                <p class="address-name">John Doe</p>
+                                <p>456 Business Blvd, Suite 200</p>
+                                <p>New York, NY 10002</p>
+                                <p>United States</p>
+                                <p class="address-phone"><i class="fas fa-phone"></i> +1 (555) 987-6543</p>
+                                <div class="address-actions">
+                                    <button class="btn-edit-address"><i class="fas fa-edit"></i> Edit</button>
+                                    <button class="btn-delete-address"><i class="fas fa-trash"></i> Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- SAVED CARDS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-cards" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Saved Cards</h2>
+                            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add New Card</button>
+                        </div>
+                        <div class="cards-grid">
+                            <div class="card-item">
+                                <div class="card-brand"><i class="fab fa-cc-visa"></i></div>
+                                <div class="card-number">•••• 4532</div>
+                                <div class="card-details">
+                                    <span>Expires: 12/26</span>
+                                    <span>John Doe</span>
+                                </div>
+                                <span class="card-default">Default</span>
+                            </div>
+                            <div class="card-item">
+                                <div class="card-brand"><i class="fab fa-cc-mastercard"></i></div>
+                                <div class="card-number">•••• 7891</div>
+                                <div class="card-details">
+                                    <span>Expires: 08/25</span>
+                                    <span>John Doe</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- PAYMENT METHODS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-payments" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Payment Methods</h2>
+                            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Payment Method</button>
+                        </div>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <i class="fas fa-credit-card"></i>
+                                <div class="payment-info">
+                                    <h4>Credit Card</h4>
+                                    <p>Visa ending in 4532</p>
+                                </div>
+                                <span class="payment-status active">Active</span>
+                            </div>
+                            <div class="payment-method">
+                                <i class="fab fa-paypal"></i>
+                                <div class="payment-info">
+                                    <h4>PayPal</h4>
+                                    <p>john.doe@email.com</p>
+                                </div>
+                                <span class="payment-status active">Active</span>
+                            </div>
+                            <div class="payment-method">
+                                <i class="fas fa-wallet"></i>
+                                <div class="payment-info">
+                                    <h4>Wallet</h4>
+                                    <p>Balance: $125.50</p>
+                                </div>
+                                <span class="payment-status active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- COUPONS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-coupons" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>My Coupons</h2>
+                            <span class="coupon-count">2 available</span>
+                        </div>
+                        <div class="coupons-grid">
+                            <div class="coupon-card">
+                                <div class="coupon-code">SAVE20</div>
+                                <div class="coupon-details">
+                                    <h4>20% Off Electronics</h4>
+                                    <p>Valid until Dec 31, 2024</p>
+                                    <span class="coupon-use">Use once</span>
+                                </div>
+                                <button class="btn-coupon">Apply</button>
+                            </div>
+                            <div class="coupon-card">
+                                <div class="coupon-code">FREESHIP</div>
+                                <div class="coupon-details">
+                                    <h4>Free Shipping</h4>
+                                    <p>Valid until Jan 15, 2025</p>
+                                    <span class="coupon-use">Unlimited use</span>
+                                </div>
+                                <button class="btn-coupon">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- GIFT CARDS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-gift-cards" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Gift Cards</h2>
+                            <button class="btn btn-primary"><i class="fas fa-gift"></i> Buy Gift Card</button>
+                        </div>
+                        <div class="gift-cards">
+                            <div class="gift-card">
+                                <div class="gift-card-balance">$50.00</div>
+                                <div class="gift-card-code">GIFT-XXXX-1234</div>
+                                <div class="gift-card-expiry">Expires: Dec 2025</div>
+                            </div>
+                            <div class="gift-card">
+                                <div class="gift-card-balance">$25.00</div>
+                                <div class="gift-card-code">GIFT-XXXX-5678</div>
+                                <div class="gift-card-expiry">Expires: Jun 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- REWARD POINTS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-rewards" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Reward Points</h2>
+                            <span class="points-total">1,250 points</span>
+                        </div>
+                        <div class="rewards-summary">
+                            <div class="reward-stat">
+                                <span class="stat-value">1,250</span>
+                                <span class="stat-label">Available Points</span>
+                            </div>
+                            <div class="reward-stat">
+                                <span class="stat-value">$12.50</span>
+                                <span class="stat-label">Cash Value</span>
+                            </div>
+                            <div class="reward-stat">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">Points Earned This Month</span>
+                            </div>
+                        </div>
+                        <div class="rewards-history">
+                            <h4>Points History</h4>
+                            <div class="history-item">
+                                <span>Purchased Wireless Headphones</span>
+                                <span class="points-earned">+25 points</span>
+                            </div>
+                            <div class="history-item">
+                                <span>Signed up for newsletter</span>
+                                <span class="points-earned">+10 points</span>
+                            </div>
+                            <div class="history-item">
+                                <span>Birthday bonus</span>
+                                <span class="points-earned">+50 points</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- WALLET SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-wallet" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>My Wallet</h2>
+                            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Funds</button>
+                        </div>
+                        <div class="wallet-balance">
+                            <div class="balance-amount">$125.50</div>
+                            <span class="balance-label">Available Balance</span>
+                        </div>
+                        <div class="wallet-transactions">
+                            <h4>Recent Transactions</h4>
+                            <div class="transaction">
+                                <div class="transaction-info">
+                                    <span class="transaction-type">Refund</span>
+                                    <span class="transaction-date">Dec 15, 2024</span>
+                                </div>
+                                <span class="transaction-amount positive">+$89.99</span>
+                            </div>
+                            <div class="transaction">
+                                <div class="transaction-info">
+                                    <span class="transaction-type">Purchase</span>
+                                    <span class="transaction-date">Dec 10, 2024</span>
+                                </div>
+                                <span class="transaction-amount negative">-$149.99</span>
+                            </div>
+                            <div class="transaction">
+                                <div class="transaction-info">
+                                    <span class="transaction-type">Cashback</span>
+                                    <span class="transaction-date">Dec 5, 2024</span>
+                                </div>
+                                <span class="transaction-amount positive">+$5.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- NOTIFICATIONS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-notifications" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Notifications</h2>
+                            <button class="btn btn-secondary"><i class="fas fa-check-double"></i> Mark All Read</button>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification unread">
+                                <div class="notification-icon"><i class="fas fa-box"></i></div>
+                                <div class="notification-content">
+                                    <h4>Order Delivered</h4>
+                                    <p>Your order #ORD-2024-001 has been delivered successfully.</p>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification unread">
+                                <div class="notification-icon"><i class="fas fa-tag"></i></div>
+                                <div class="notification-content">
+                                    <h4>Flash Sale Alert</h4>
+                                    <p>Up to 50% off on electronics. Hurry, sale ends soon!</p>
+                                    <span class="notification-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="notification">
+                                <div class="notification-icon"><i class="fas fa-heart"></i></div>
+                                <div class="notification-content">
+                                    <h4>Wishlist Price Drop</h4>
+                                    <p>An item in your wishlist has dropped in price by 20%.</p>
+                                    <span class="notification-time">3 days ago</span>
+                                </div>
+                            </div>
+                            <div class="notification">
+                                <div class="notification-icon"><i class="fas fa-gift"></i></div>
+                                <div class="notification-content">
+                                    <h4>Special Offer</h4>
+                                    <p>Free shipping on your next order. Use code: FREESHIP</p>
+                                    <span class="notification-time">5 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- REVIEWS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-reviews" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>My Reviews</h2>
+                            <span class="reviews-count">3 reviews</span>
+                        </div>
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-product">
+                                    <!-- IMAGE: product-1.jpg -->
+                                    <div class="review-image"><i class="fas fa-image"></i></div>
+                                    <div class="review-product-info">
+                                        <h4>Wireless Bluetooth Headphones</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="review-text">Excellent sound quality! The noise cancellation is amazing and battery life is incredible.</p>
+                                <span class="review-date">Dec 16, 2024</span>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-product">
+                                    <!-- IMAGE: product-2.jpg -->
+                                    <div class="review-image"><i class="fas fa-image"></i></div>
+                                    <div class="review-product-info">
+                                        <h4>Smart Fitness Watch</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="review-text">Great fitness tracker, GPS is accurate and the battery lasts for days.</p>
+                                <span class="review-date">Dec 11, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- RETURNS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-returns" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Returns & Refunds</h2>
+                            <button class="btn btn-primary"><i class="fas fa-plus"></i> New Return Request</button>
+                        </div>
+                        <div class="returns-list">
+                            <div class="return-item">
+                                <div class="return-status approved">Approved</div>
+                                <div class="return-details">
+                                    <h4>Return #RET-2024-001</h4>
+                                    <p>Product: Premium Leather Backpack</p>
+                                    <p>Reason: Defective item</p>
+                                    <span class="return-date">Dec 14, 2024</span>
+                                </div>
+                                <span class="return-amount">$79.99</span>
+                            </div>
+                            <div class="return-item">
+                                <div class="return-status pending">Pending</div>
+                                <div class="return-details">
+                                    <h4>Return #RET-2024-002</h4>
+                                    <p>Product: Wireless Charging Pad</p>
+                                    <p>Reason: Wrong item received</p>
+                                    <span class="return-date">Dec 18, 2024</span>
+                                </div>
+                                <span class="return-amount">$34.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- DOWNLOADS SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-downloads" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Downloads</h2>
+                        </div>
+                        <div class="downloads-list">
+                            <div class="download-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="download-info">
+                                    <h4>Invoice #ORD-2024-001</h4>
+                                    <p>Downloaded Dec 15, 2024</p>
+                                </div>
+                                <button class="btn-download"><i class="fas fa-download"></i></button>
+                            </div>
+                            <div class="download-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="download-info">
+                                    <h4>Invoice #ORD-2024-002</h4>
+                                    <p>Downloaded Dec 10, 2024</p>
+                                </div>
+                                <button class="btn-download"><i class="fas fa-download"></i></button>
+                            </div>
+                            <div class="download-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="download-info">
+                                    <h4>Return Label #RET-2024-001</h4>
+                                    <p>Generated Dec 14, 2024</p>
+                                </div>
+                                <button class="btn-download"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================== -->
+                    <!-- SECURITY SECTION -->
+                    <!-- ======================================== -->
+                    <div id="section-security" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2>Security Settings</h2>
+                        </div>
+                        <div class="security-settings">
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-lock"></i>
+                                    <div>
+                                        <h4>Two-Factor Authentication</h4>
+                                        <p>Add an extra layer of security to your account</p>
+                                    </div>
+                                </div>
+                                <button class="btn-security enable">Enable</button>
+                            </div>
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-key"></i>
+                                    <div>
+                                        <h4>Change Password</h4>
+                                        <p>Update your password regularly for better security</p>
+                                    </div>
+                                </div>
+                                <button class="btn-security">Change</button>
+                            </div>
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <div>
+                                        <h4>Phone Verification</h4>
+                                        <p>Verify your phone number for account recovery</p>
+                                    </div>
+                                </div>
+                                <button class="btn-security">Verify</button>
+                            </div>
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-history"></i>
+                                    <div>
+                                        <h4>Recent Logins</h4>
+                                        <p>Review your recent login activity</p>
+                                    </div>
+                                </div>
+                                <button class="btn-security">View</button>
+                            </div>
+                            <div class="security-item danger">
+                                <div class="security-info">
+                                    <i class="fas fa-trash-alt"></i>
+                                    <div>
+                                        <h4>Delete Account</h4>
+                                        <p>Permanently delete your account and all data</p>
+                                    </div>
+                                </div>
+                                <button class="btn-security danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--        FOOTER                  -->
+    <!-- ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>PUT <span>XYZ</span></h3>
+                    <p>Your premier destination for high-quality products. We curate the best items to elevate your lifestyle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Affiliate Program</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns & Refunds</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Commerce St, Suite 100</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@putxyz.com</p>
+                    <div class="trust-badges">
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-apple-pay"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+                <p>&copy; 2024 PUT XYZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================== -->
+    <!--        JAVASCRIPT              -->
+    <!-- ============================== -->
+    <script src="main.js"></script>
+</body>
+</html>

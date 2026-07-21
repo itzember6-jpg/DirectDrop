@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account - PUT XYZ</title>
+    
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+    <!-- ============================== -->
+    <!--        TOP HEADER BAR          -->
+    <!-- ============================== -->
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <span><i class="fas fa-shipping-fast"></i>Free Shipping on orders on any order above 500rs </span>
+            </div>
+            <div class="top-header-right">
+                <a href="login.html"><i class="fas fa-user"></i> Sign In</a>
+                <a href="register.html" class="active"><i class="fas fa-user-plus"></i> Register</a>
+                <div class="currency-selector">
+                    <span><i class="fas fa-dollar-sign"></i> USD</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="language-selector">
+                    <span><i class="fas fa-globe"></i> EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--        MAIN HEADER / NAV       -->
+    <!-- ============================== -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html">
+                    <h1>PUT <span>XYZ</span></h1>
+                </a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="searchInput" />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <a href="wishlist.html" class="action-icon">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="compare.html" class="action-icon">
+                    <i class="fas fa-chart-simple"></i>
+                </a>
+                <a href="cart.html" class="action-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== -->
+    <!--      REGISTRATION SECTION      -->
+    <!-- ============================== -->
+    <section class="register-section">
+        <div class="container">
+            <div class="register-wrapper">
+                <!-- Register Image/Illustration -->
+                <div class="register-image">
+                    <!-- IMAGE: register-illustration.jpg -->
+                    <div class="register-image-placeholder">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Join Our Community</span>
+                        <p>Create your account and start shopping</p>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Exclusive deals & offers</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Track your orders easily</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Save items to wishlist</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Reward points & cashback</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="register-form-wrapper">
+                    <div class="register-header">
+                        <h2>Create Account</h2>
+                        <p>Fill in the details below to get started.</p>
+                    </div>
+
+                    <!-- Registration Form -->
+                    <form id="register-form" class="register-form" onsubmit="return validateRegistration(event)">
+                        <!-- Personal Information Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name"><i class="fas fa-user"></i> First Name</label>
+                                <input type="text" id="first-name" placeholder="Enter first name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name"><i class="fas fa-user"></i> Last Name</label>
+                                <input type="text" id="last-name" placeholder="Enter last name" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username"><i class="fas fa-at"></i> Username</label>
+                            <input type="text" id="username" placeholder="Choose a username" required />
+                            <span class="helper-text">Must be at least 3 characters</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email address" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <div class="phone-input-wrapper">
+                                <select class="country-code" id="country-code">
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+86">🇨🇳 +86</option>
+                                    <option value="+49">🇩🇪 +49</option>
+                                    <option value="+33">🇫🇷 +33</option>
+                                    <option value="+39">🇮🇹 +39</option>
+                                    <option value="+55">🇧🇷 +55</option>
+                                </select>
+                                <input type="tel" id="phone" placeholder="Enter phone number" required />
+                            </div>
+                        </div>
+
+                        <!-- Password Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="password" placeholder="Create a password" required />
+                                    <button type="button" class="toggle-password" onclick="togglePassword('password', this)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-progress" id="strength-progress"></div>
+                                    </div>
+                                    <span class="strength-text" id="strength-text">Enter a strong password</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password"><i class="fas fa-check-circle"></i> Confirm Password</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="confirm-password" placeholder="Confirm your password" required />
+                                    <button type="button" class="toggle-password" onclick="togglePassword('confirm-password', this)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                                <select id="gender">
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="non-binary">Non-binary</option>
+                                    <option value="prefer-not">Prefer not to say</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                                <input type="date" id="dob" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country"><i class="fas fa-globe"></i> Country</label>
+                            <select id="country" required>
+                                <option value="">Select your country</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="IT">Italy</option>
+                                <option value="ES">Spain</option>
+                                <option value="JP">Japan</option>
+                                <option value="IN">India</option>
+                                <option value="BR">Brazil</option>
+                                <option value="MX">Mexico</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="referral"><i class="fas fa-gift"></i> Referral Code (Optional)</label>
+                            <input type="text" id="referral" placeholder="Enter referral code if you have one" />
+                        </div>
+
+                        <!-- CAPTCHA -->
+                        <div class="captcha-container">
+                            <div class="captcha-box">
+                                <span class="captcha-text" id="captcha-text">6A7B9C</span>
+                                <button type="button" class="captcha-refresh" onclick="refreshCaptcha()">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                            <input type="text" class="captcha-input" id="captcha-input" placeholder="Enter CAPTCHA code" maxlength="6" required />
+                        </div>
+
+                        <!-- Terms & Newsletter -->
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" required />
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" checked />
+                                <span class="checkmark"></span>
+                                Subscribe to newsletter
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-register">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                    </form>
+
+                    <!-- Login Link -->
+                    <div class="login-link">
+                        <p>Already have an account? <a href="login.html">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--        FOOTER                  -->
+    <!-- ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>PUT <span>XYZ</span></h3>
+                    <p>Your premier destination for high-quality products. We curate the best items to elevate your lifestyle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Affiliate Program</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns & Refunds</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Commerce St, Suite 100</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@putxyz.com</p>
+                    <div class="trust-badges">
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-apple-pay"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+                <p>&copy; 2024 PUT XYZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================== -->
+    <!--        JAVASCRIPT              -->
+    <!-- ============================== -->
+    <script src="main.js"></script>
+</body>
+</html>

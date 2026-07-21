@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - PUT XYZ</title>
+    
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="products.css" />
+</head>
+<body>
+    <!-- ============================== -->
+    <!--        TOP HEADER BAR          -->
+    <!-- ============================== -->
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <span><i class="fas fa-shipping-fast"></i> Free Shipping on orders on any order above 500rs</span>
+            </div>
+            <div class="top-header-right">
+                <a href="login.html"><i class="fas fa-user"></i> Sign In</a>
+                <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                <div class="currency-selector">
+                    <span><i class="fas fa-dollar-sign"></i>RS</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="language-selector">
+                    <span><i class="fas fa-globe"></i> EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--        MAIN HEADER / NAV       -->
+    <!-- ============================== -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Direct <span>Drop</span></h1>
+                </a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="searchInput" />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="wishlist.html" class="action-icon">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="compare.html" class="action-icon">
+                    <i class="fas fa-chart-simple"></i>
+                </a>
+                <a href="cart.html" class="action-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== -->
+    <!--     BREADCRUMB / PAGE TITLE    -->
+    <!-- ============================== -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="products.html" class="active">Products</a>
+            </div>
+            <h1>All Products</h1>
+            <p>Discover our curated collection of premium products</p>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--      PRODUCTS SECTION          -->
+    <!-- ============================== -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-layout">
+                <!-- ======================================== -->
+                <!-- SIDEBAR FILTERS                         -->
+                <!-- ======================================== -->
+                <aside class="filter-sidebar">
+                    <!-- Close Filter Button (Mobile) -->
+                    <button class="close-filters" onclick="closeFilters()"><i class="fas fa-times"></i></button>
+
+                    <!-- Filter Header -->
+                    <div class="filter-header">
+                        <h3><i class="fas fa-sliders-h"></i> Filters</h3>
+                        <button class="clear-filters" onclick="clearFilters()">Clear All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Category <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Electronics <span class="count">(45)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Fashion <span class="count">(32)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Home & Living <span class="count">(28)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Beauty <span class="count">(18)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Sports <span class="count">(12)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Books <span class="count">(8)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Brand <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Apple <span class="count">(12)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Samsung <span class="count">(8)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Sony <span class="count">(6)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Nike <span class="count">(10)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Adidas <span class="count">(7)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Price Range <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options price-range">
+                            <div class="price-inputs">
+                                <input type="number" placeholder="Min" id="price-min" />
+                                <span>—</span>
+                                <input type="number" placeholder="Max" id="price-max" />
+                            </div>
+                            <button class="apply-price" onclick="applyPriceFilter()">Apply</button>
+                            <div class="price-presets">
+                                <button class="price-preset" onclick="setPricePreset(0, 50)">Under $50</button>
+                                <button class="price-preset" onclick="setPricePreset(50, 100)">$50 - $100</button>
+                                <button class="price-preset" onclick="setPricePreset(100, 200)">$100 - $200</button>
+                                <button class="price-preset" onclick="setPricePreset(200, 500)">$200+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Rating <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                <span class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
+                                &amp; Up
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                <span class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </span>
+                                &amp; Up
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                <span class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
+                                &amp; Up
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                <span class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </span>
+                                &amp; Up
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Color Filter -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Color <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options color-options">
+                            <button class="color-btn" style="background: #000000;" title="Black"></button>
+                            <button class="color-btn" style="background: #FFFFFF; border: 2px solid #ddd;" title="White"></button>
+                            <button class="color-btn" style="background: #0066FF;" title="Blue"></button>
+                            <button class="color-btn" style="background: #FF3B30;" title="Red"></button>
+                            <button class="color-btn" style="background: #34C759;" title="Green"></button>
+                            <button class="color-btn" style="background: #FF9500;" title="Orange"></button>
+                            <button class="color-btn" style="background: #AF52DE;" title="Purple"></button>
+                            <button class="color-btn" style="background: #FF2D55;" title="Pink"></button>
+                        </div>
+                    </div>
+
+                    <!-- Size Filter -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Size <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn">S</button>
+                            <button class="size-btn active">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn">XXL</button>
+                        </div>
+                    </div>
+
+                    <!-- Availability -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Availability <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" checked />
+                                <span class="checkmark"></span>
+                                In Stock
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Out of Stock
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                Pre-order
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Discount -->
+                    <div class="filter-group">
+                        <h4 onclick="toggleFilter(this)">Discount <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                10% or more
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                20% or more
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                30% or more
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                                50% or more
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Apply Filters Button -->
+                    <button class="btn btn-primary apply-filters-btn" onclick="applyFilters()">
+                        <i class="fas fa-filter"></i> Apply Filters
+                    </button>
+                </aside>
+
+                <!-- ======================================== -->
+                <!-- PRODUCT LISTING                         -->
+                <!-- ======================================== -->
+                <main class="product-listing">
+                    <!-- Toolbar -->
+                    <div class="toolbar">
+                        <div class="toolbar-left">
+                            <button class="filter-toggle" onclick="toggleFilters()">
+                                <i class="fas fa-sliders-h"></i> Filters
+                            </button>
+                            <span class="results-count">Showing 1-16 of 128 products</span>
+                        </div>
+                        <div class="toolbar-right">
+                            <div class="view-toggle">
+                                <button class="grid-view active" onclick="setView('grid')">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="list-view" onclick="setView('list')">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            <div class="sort-dropdown">
+                                <select id="sort-select" onchange="sortProducts()">
+                                    <option value="popular">Most Popular</option>
+                                    <option value="newest">Newest First</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Highest Rated</option>
+                                    <option value="discount">Biggest Discount</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Filters -->
+                    <div class="active-filters" id="active-filters">
+                        <span class="filter-tag">
+                            Electronics <i class="fas fa-times" onclick="removeFilter(this)"></i>
+                        </span>
+                        <span class="filter-tag">
+                            $50 - $100 <i class="fas fa-times" onclick="removeFilter(this)"></i>
+                        </span>
+                        <span class="filter-tag">
+                            In Stock <i class="fas fa-times" onclick="removeFilter(this)"></i>
+                        </span>
+                        <button class="clear-all-filters" onclick="clearFilters()">Clear All</button>
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div class="product-grid" id="product-grid">
+                        <!-- Product 1 -->
+                        <div class="product-card" data-id="1" onclick="openProductDetail(1)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-1.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="sale-badge">-30%</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(1)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Sony</div>
+                                <h3 class="product-title">Wireless Bluetooth Headphones</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.5) 128 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$89.99</span>
+                                    <span class="original-price">$129.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(1)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(1)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card" data-id="2" onclick="openProductDetail(2)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-2.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="sale-badge">-25%</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(2)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Apple</div>
+                                <h3 class="product-title">Smart Fitness Watch</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(5.0) 95 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$149.99</span>
+                                    <span class="original-price">$199.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(2)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(2)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card" data-id="3" onclick="openProductDetail(3)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-3.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="sale-badge">-40%</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(3)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Herschel</div>
+                                <h3 class="product-title">Premium Leather Backpack</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.9) 67 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$79.99</span>
+                                    <span class="original-price">$134.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(3)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(3)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card" data-id="4" onclick="openProductDetail(4)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-4.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="new-badge">New</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(4)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Anker</div>
+                                <h3 class="product-title">Wireless Charging Pad</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.8) 203 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$34.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(4)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(4)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card" data-id="5" onclick="openProductDetail(5)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-5.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="featured-badge">Featured</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(5)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">GoPro</div>
+                                <h3 class="product-title">4K Action Camera</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.6) 156 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$199.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(5)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(5)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card" data-id="6" onclick="openProductDetail(6)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-6.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="featured-badge">Featured</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(6)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Logitech</div>
+                                <h3 class="product-title">Mechanical Keyboard</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.7) 89 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$129.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(6)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(6)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="product-card" data-id="7" onclick="openProductDetail(7)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-7.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="featured-badge">Featured</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(7)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Amazon</div>
+                                <h3 class="product-title">Smart Home Hub</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.9) 312 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$89.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(7)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(7)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="product-card" data-id="8" onclick="openProductDetail(8)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-8.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="featured-badge">Featured</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(8)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Samsung</div>
+                                <h3 class="product-title">Wireless Earbuds</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.8) 178 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$59.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(8)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(8)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="product-card" data-id="9" onclick="openProductDetail(9)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-9.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="bestseller-badge">#1 Best Seller</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(9)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">DJI</div>
+                                <h3 class="product-title">Professional Drone</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(5.0) 45 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$499.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(9)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(9)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status low-stock">Only 3 left</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 10 -->
+                        <div class="product-card" data-id="10" onclick="openProductDetail(10)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-10.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="bestseller-badge">#2 Best Seller</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(10)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Samsung</div>
+                                <h3 class="product-title">Smartphone 5G</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.7) 234 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$699.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(10)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(10)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 11 -->
+                        <div class="product-card" data-id="11" onclick="openProductDetail(11)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-11.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="bestseller-badge">#3 Best Seller</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(11)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">LG</div>
+                                <h3 class="product-title">Gaming Monitor</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.9) 89 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$349.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(11)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(11)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status pre-order">Pre-order</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 12 -->
+                        <div class="product-card" data-id="12" onclick="openProductDetail(12)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-12.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="bestseller-badge">#4 Best Seller</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(12)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Breville</div>
+                                <h3 class="product-title">Coffee Maker</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.6) 156 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$89.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(12)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(12)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status out-of-stock">Out of Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 13 -->
+                        <div class="product-card" data-id="13" onclick="openProductDetail(13)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-13.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="new-badge">New</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(13)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Ray-Ban</div>
+                                <h3 class="product-title">Smart Glasses</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.8) 34 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$299.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(13)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(13)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 14 -->
+                        <div class="product-card" data-id="14" onclick="openProductDetail(14)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-14.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="new-badge">New</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(14)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">iRobot</div>
+                                <h3 class="product-title">Robot Vacuum</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.7) 78 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$449.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(14)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(14)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 15 -->
+                        <div class="product-card" data-id="15" onclick="openProductDetail(15)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-15.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="new-badge">New</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(15)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">Vitruvi</div>
+                                <h3 class="product-title">Scent Diffuser</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(4.9) 45 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$39.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(15)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(15)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+
+                        <!-- Product 16 -->
+                        <div class="product-card" data-id="16" onclick="openProductDetail(16)">
+                            <div class="product-image">
+                                <!-- IMAGE: product-16.jpg -->
+                                <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                                <span class="new-badge">New</span>
+                                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="quick-view-btn" onclick="event.stopPropagation(); openQuickView(16)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">JBL</div>
+                                <h3 class="product-title">Portable Speaker</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.5) 123 reviews</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">$79.99</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(16)">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="compare-btn" onclick="event.stopPropagation(); addToCompare(16)">
+                                        <i class="fas fa-chart-simple"></i>
+                                    </button>
+                                </div>
+                                <div class="stock-status in-stock">In Stock</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">...</button>
+                        <button class="page-btn">8</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Infinite Scroll Loader -->
+                    <div class="infinite-loader" id="infinite-loader">
+                        <div class="loader-spinner"></div>
+                        <span>Loading more products...</span>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--        QUICK VIEW MODAL        -->
+    <!-- ============================== -->
+    <div class="quick-view-modal" id="quick-view-modal">
+        <div class="quick-view-overlay" onclick="closeQuickView()"></div>
+        <div class="quick-view-content">
+            <button class="close-quick-view" onclick="closeQuickView()"><i class="fas fa-times"></i></button>
+            <div class="quick-view-body">
+                <div class="quick-view-image">
+                    <!-- IMAGE: product-1.jpg -->
+                    <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                </div>
+                <div class="quick-view-details">
+                    <div class="product-brand">Sony</div>
+                    <h3 class="product-title">Wireless Bluetooth Headphones</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5) 128 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">$89.99</span>
+                        <span class="original-price">$129.99</span>
+                    </div>
+                    <p class="product-description">Premium noise-canceling headphones with 40hr battery life, comfortable ear cushions, and superior sound quality.</p>
+                    <div class="quick-view-actions">
+                        <div class="quantity-selector">
+                            <button onclick="updateQuantity(-1)"><i class="fas fa-minus"></i></button>
+                            <span id="quick-qty">1</span>
+                            <button onclick="updateQuantity(1)"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <button class="btn btn-primary" onclick="addToCartFromQuickView()">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="buyNowFromQuickView()">
+                            <i class="fas fa-bolt"></i> Buy Now
+                        </button>
+                    </div>
+                    <button class="wishlist-quick" onclick="toggleWishlistQuick()">
+                        <i class="far fa-heart"></i> Add to Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--        FOOTER                  -->
+    <!-- ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>PUT <span>XYZ</span></h3>
+                    <p>Your premier destination for high-quality products. We curate the best items to elevate your lifestyle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Affiliate Program</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns & Refunds</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Commerce St, Suite 100</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@putxyz.com</p>
+                    <div class="trust-badges">
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-apple-pay"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+                <p>&copy; 2024 PUT XYZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================== -->
+    <!--        JAVASCRIPT              -->
+    <!-- ============================== -->
+    <script src="main.js"></script>
+</body>
+</html>

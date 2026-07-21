@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - PUT XYZ</title>
+    
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="product-detail.css" />
+</head>
+<body>
+    <!-- ============================== -->
+    <!--        TOP HEADER BAR          -->
+    <!-- ============================== -->
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <span><i class="fas fa-shipping-fast"></i>Free Shipping on orders on any order above 500rs</span>
+            </div>
+            <div class="top-header-right">
+                <a href="login.html"><i class="fas fa-user"></i> Sign In</a>
+                <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                <div class="currency-selector">
+                    <span><i class="fas fa-dollar-sign"></i> USD</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="language-selector">
+                    <span><i class="fas fa-globe"></i> EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--        MAIN HEADER / NAV       -->
+    <!-- ============================== -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>PUT <span>XYZ</span></h1>
+                </a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="searchInput" />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="wishlist.html" class="action-icon">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="compare.html" class="action-icon">
+                    <i class="fas fa-chart-simple"></i>
+                </a>
+                <a href="cart.html" class="action-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== -->
+    <!--     BREADCRUMB                 -->
+    <!-- ============================== -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="products.html">Products</a>
+                <span>/</span>
+                <a href="products.html?category=electronics">Electronics</a>
+                <span>/</span>
+                <span class="active">Wireless Bluetooth Headphones</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--    PRODUCT DETAIL SECTION      -->
+    <!-- ============================== -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-wrapper">
+                <!-- ======================================== -->
+                <!-- PRODUCT IMAGES GALLERY                   -->
+                <!-- ======================================== -->
+                <div class="product-gallery">
+                    <!-- Main Image -->
+                    <div class="main-image">
+                        <!-- IMAGE: product-1.jpg -->
+                        <div class="image-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span>Main Product Image</span>
+                        </div>
+                        <div class="image-actions">
+                            <button class="zoom-btn" onclick="zoomImage()"><i class="fas fa-search-plus"></i></button>
+                            <button class="view-360-btn" onclick="view360()"><i class="fas fa-sync-alt"></i> 360°</button>
+                            <button class="video-btn" onclick="playVideo()"><i class="fas fa-play"></i> Video</button>
+                        </div>
+                        <span class="sale-badge">-30%</span>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="thumbnail-list">
+                        <div class="thumbnail active">
+                            <!-- IMAGE: product-1.jpg -->
+                            <div class="thumb-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                        <div class="thumbnail">
+                            <!-- IMAGE: product-1a.jpg -->
+                            <div class="thumb-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                        <div class="thumbnail">
+                            <!-- IMAGE: product-1b.jpg -->
+                            <div class="thumb-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                        <div class="thumbnail">
+                            <!-- IMAGE: product-1c.jpg -->
+                            <div class="thumb-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                        <div class="thumbnail">
+                            <!-- IMAGE: product-1d.jpg -->
+                            <div class="thumb-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Zoom Modal -->
+                    <div class="zoom-modal" id="zoom-modal">
+                        <div class="zoom-overlay" onclick="closeZoom()"></div>
+                        <div class="zoom-content">
+                            <button class="close-zoom" onclick="closeZoom()"><i class="fas fa-times"></i></button>
+                            <!-- IMAGE: product-1.jpg -->
+                            <div class="zoom-image"><i class="fas fa-image"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======================================== -->
+                <!-- PRODUCT INFORMATION                      -->
+                <!-- ======================================== -->
+                <div class="product-info-detail">
+                    <!-- Product Header -->
+                    <div class="product-header">
+                        <div class="product-brand">Sony</div>
+                        <h1>Wireless Bluetooth Headphones with Noise Cancellation</h1>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5 (128 Reviews)</span>
+                            </div>
+                            <span class="sku">SKU: WH-1000XM5</span>
+                        </div>
+                    </div>
+
+                    <!-- Price Section -->
+                    <div class="price-section">
+                        <div class="prices">
+                            <span class="current-price">$89.99</span>
+                            <span class="original-price">$129.99</span>
+                            <span class="discount-badge">Save $40.00 (30%)</span>
+                        </div>
+                        <div class="price-note">Inclusive of all taxes</div>
+                    </div>
+
+                    <!-- Variants -->
+                    <div class="variants-section">
+                        <!-- Color Selection -->
+                        <div class="variant-group">
+                            <label>Color:</label>
+                            <div class="color-options">
+                                <button class="color-btn active" style="background: #000000;" title="Black"></button>
+                                <button class="color-btn" style="background: #FFFFFF; border: 2px solid #ddd;" title="White"></button>
+                                <button class="color-btn" style="background: #0066FF;" title="Blue"></button>
+                                <button class="color-btn" style="background: #FF3B30;" title="Red"></button>
+                            </div>
+                        </div>
+
+                        <!-- Size Selection -->
+                        <div class="variant-group">
+                            <label>Size:</label>
+                            <div class="size-options">
+                                <button class="size-btn active">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Actions -->
+                    <div class="action-section">
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <div class="qty-controls">
+                                <button onclick="updateQty(-1)"><i class="fas fa-minus"></i></button>
+                                <span id="qty-display">1</span>
+                                <button onclick="updateQty(1)"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-primary btn-add-to-cart" onclick="addToCartDetail()">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-buy-now" onclick="buyNow()">
+                                <i class="fas fa-bolt"></i> Buy Now
+                            </button>
+                        </div>
+
+                        <div class="action-secondary">
+                            <button class="btn-wishlist-detail" onclick="toggleWishlistDetail()">
+                                <i class="far fa-heart"></i> Add to Wishlist
+                            </button>
+                            <button class="btn-compare-detail" onclick="addToCompareDetail()">
+                                <i class="fas fa-chart-simple"></i> Compare
+                            </button>
+                            <button class="btn-share" onclick="shareProduct()">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stock & Delivery -->
+                    <div class="stock-delivery">
+                        <div class="stock-status in-stock">
+                            <i class="fas fa-check-circle"></i> In Stock
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-truck"></i> 
+                            <span>Free delivery by <strong>Dec 20, 2024</strong></span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="fas fa-box"></i> 
+                            <span>Free shipping on orders over $50</span>
+                        </div>
+                    </div>
+
+                    <!-- Warranty & Returns -->
+                    <div class="warranty-returns">
+                        <div class="warranty">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Warranty</strong>
+                                <span>2 Year Manufacturer Warranty</span>
+                            </div>
+                        </div>
+                        <div class="returns">
+                            <i class="fas fa-undo"></i>
+                            <div>
+                                <strong>Returns</strong>
+                                <span>30-day return policy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seller Information -->
+                    <div class="seller-info">
+                        <i class="fas fa-store"></i>
+                        <div>
+                            <strong>Sold by</strong>
+                            <span>PUT XYZ Official Store</span>
+                            <div class="seller-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7 (2,345 ratings)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--    PRODUCT TABS SECTION        -->
+    <!-- ============================== -->
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tabs-wrapper">
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="specifications">Specifications</button>
+                    <button class="tab-btn" data-tab="features">Features</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews <span class="tab-count">(128)</span></button>
+                    <button class="tab-btn" data-tab="qa">Q&A <span class="tab-count">(24)</span></button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content-wrapper">
+                    <!-- Description Tab -->
+                    <div id="tab-description" class="tab-content active">
+                        <div class="description-content">
+                            <h3>Product Description</h3>
+                            <p>Experience premium sound quality with our Wireless Bluetooth Headphones. Designed for music lovers and professionals alike, these headphones deliver exceptional audio performance with advanced noise cancellation technology.</p>
+                            
+                            <h4>Key Highlights:</h4>
+                            <ul>
+                                <li>Premium noise-canceling technology for immersive listening</li>
+                                <li>40-hour battery life for all-day use</li>
+                                <li>Comfortable ear cushions for extended wear</li>
+                                <li>Superior sound quality with deep bass</li>
+                                <li>Bluetooth 5.0 for stable connectivity</li>
+                                <li>Built-in microphone for clear calls</li>
+                            </ul>
+
+                            <h4>What's in the Box:</h4>
+                            <ul>
+                                <li>Wireless Bluetooth Headphones</li>
+                                <li>USB-C Charging Cable</li>
+                                <li>3.5mm Audio Cable</li>
+                                <li>Carrying Case</li>
+                                <li>User Manual</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Specifications Tab -->
+                    <div id="tab-specifications" class="tab-content">
+                        <div class="specifications-content">
+                            <h3>Technical Specifications</h3>
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Brand</td>
+                                    <td>Sony</td>
+                                </tr>
+                                <tr>
+                                    <td>Model</td>
+                                    <td>WH-1000XM5</td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Over-Ear Headphones</td>
+                                </tr>
+                                <tr>
+                                    <td>Connectivity</td>
+                                    <td>Bluetooth 5.0, 3.5mm Jack</td>
+                                </tr>
+                                <tr>
+                                    <td>Battery Life</td>
+                                    <td>40 Hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Charging Time</td>
+                                    <td>3 Hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Noise Cancellation</td>
+                                    <td>Active Noise Cancellation</td>
+                                </tr>
+                                <tr>
+                                    <td>Frequency Response</td>
+                                    <td>20Hz - 20,000Hz</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>250g</td>
+                                </tr>
+                                <tr>
+                                    <td>Color Options</td>
+                                    <td>Black, White, Blue, Red</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Features Tab -->
+                    <div id="tab-features" class="tab-content">
+                        <div class="features-content">
+                            <h3>Product Features</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-headphones"></i>
+                                    <h4>Premium Sound Quality</h4>
+                                    <p>Experience crystal-clear audio with deep bass and balanced mids</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-microphone"></i>
+                                    <h4>Noise Cancellation</h4>
+                                    <p>Advanced ANC technology blocks out ambient noise</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-battery-full"></i>
+                                    <h4>Long Battery Life</h4>
+                                    <p>Up to 40 hours of playtime on a single charge</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-bluetooth"></i>
+                                    <h4>Bluetooth 5.0</h4>
+                                    <p>Stable connection with extended range</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-user-check"></i>
+                                    <h4>Comfort Fit</h4>
+                                    <p>Ergonomic design with soft ear cushions</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-music"></i>
+                                    <h4>High-Resolution Audio</h4>
+                                    <p>Supports high-quality audio formats</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div id="tab-reviews" class="tab-content">
+                        <div class="reviews-content">
+                            <div class="reviews-summary">
+                                <div class="overall-rating">
+                                    <span class="rating-number">4.5</span>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-count">Based on 128 reviews</span>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-bar">
+                                        <span>5 ★</span>
+                                        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>4 ★</span>
+                                        <div class="bar"><div class="fill" style="width: 15%;"></div></div>
+                                        <span>15%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>3 ★</span>
+                                        <div class="bar"><div class="fill" style="width: 6%;"></div></div>
+                                        <span>6%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>2 ★</span>
+                                        <div class="bar"><div class="fill" style="width: 3%;"></div></div>
+                                        <span>3%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>1 ★</span>
+                                        <div class="bar"><div class="fill" style="width: 1%;"></div></div>
+                                        <span>1%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reviews-list">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">JD</div>
+                                            <div>
+                                                <span class="reviewer-name">John Doe</span>
+                                                <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <h4>Amazing Sound Quality!</h4>
+                                    <p>These headphones are incredible. The noise cancellation is top-notch and the battery life is amazing. I use them every day for work and they never disappoint.</p>
+                                    <div class="review-footer">
+                                        <span class="review-date">December 15, 2024</span>
+                                        <div class="review-actions">
+                                            <button class="helpful-btn"><i class="far fa-thumbs-up"></i> Helpful (34)</button>
+                                            <button class="report-btn"><i class="far fa-flag"></i> Report</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">SM</div>
+                                            <div>
+                                                <span class="reviewer-name">Sarah Miller</span>
+                                                <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    <h4>Great for travel</h4>
+                                    <p>Perfect for long flights. The noise cancellation blocks out engine noise effectively. Comfortable for hours of use. Highly recommend!</p>
+                                    <div class="review-footer">
+                                        <span class="review-date">December 10, 2024</span>
+                                        <div class="review-actions">
+                                            <button class="helpful-btn"><i class="far fa-thumbs-up"></i> Helpful (28)</button>
+                                            <button class="report-btn"><i class="far fa-flag"></i> Report</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn-load-more">Load More Reviews</button>
+                        </div>
+                    </div>
+
+                    <!-- Q&A Tab -->
+                    <div id="tab-qa" class="tab-content">
+                        <div class="qa-content">
+                            <div class="qa-header">
+                                <h3>Customer Questions & Answers</h3>
+                                <button class="btn-ask-question" onclick="askQuestion()"><i class="fas fa-question"></i> Ask a Question</button>
+                            </div>
+                            <div class="qa-list">
+                                <div class="qa-item">
+                                    <div class="qa-question">
+                                        <i class="fas fa-question-circle"></i>
+                                        <div>
+                                            <h4>Does this work with iPhone?</h4>
+                                            <span class="qa-author">Asked by Mark R. on Dec 10, 2024</span>
+                                        </div>
+                                    </div>
+                                    <div class="qa-answer">
+                                        <i class="fas fa-answer"></i>
+                                        <div>
+                                            <p>Yes, these headphones are compatible with iPhone and all Bluetooth-enabled devices.</p>
+                                            <span class="qa-author">Answered by PUT XYZ Support on Dec 12, 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qa-item">
+                                    <div class="qa-question">
+                                        <i class="fas fa-question-circle"></i>
+                                        <div>
+                                            <h4>How long does the battery last?</h4>
+                                            <span class="qa-author">Asked by Lisa T. on Dec 8, 2024</span>
+                                        </div>
+                                    </div>
+                                    <div class="qa-answer">
+                                        <i class="fas fa-answer"></i>
+                                        <div>
+                                            <p>The headphones provide up to 40 hours of battery life on a single charge with noise cancellation enabled.</p>
+                                            <span class="qa-author">Answered by PUT XYZ Support on Dec 9, 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--    FREQUENTLY BOUGHT TOGETHER  -->
+    <!-- ============================== -->
+    <section class="frequently-bought">
+        <div class="container">
+            <div class="section-header">
+                <h2>🛍️ Frequently Bought Together</h2>
+            </div>
+            <div class="fbt-grid">
+                <div class="fbt-item">
+                    <div class="fbt-image">
+                        <!-- IMAGE: product-1.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="fbt-info">
+                        <h4>Wireless Bluetooth Headphones</h4>
+                        <span class="fbt-price">$89.99</span>
+                    </div>
+                </div>
+                <div class="fbt-plus"><i class="fas fa-plus"></i></div>
+                <div class="fbt-item">
+                    <div class="fbt-image">
+                        <!-- IMAGE: accessory-1.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="fbt-info">
+                        <h4>Premium Carrying Case</h4>
+                        <span class="fbt-price">$19.99</span>
+                    </div>
+                </div>
+                <div class="fbt-plus"><i class="fas fa-plus"></i></div>
+                <div class="fbt-item">
+                    <div class="fbt-image">
+                        <!-- IMAGE: accessory-2.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="fbt-info">
+                        <h4>USB-C Charging Cable</h4>
+                        <span class="fbt-price">$9.99</span>
+                    </div>
+                </div>
+                <div class="fbt-total">
+                    <span>Total: <strong>$119.97</strong></span>
+                    <span class="fbt-savings">Save $9.00</span>
+                    <button class="btn btn-primary" onclick="addBundleToCart()">
+                        <i class="fas fa-shopping-cart"></i> Add All to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--    SIMILAR PRODUCTS            -->
+    <!-- ============================== -->
+    <section class="similar-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔄 Similar Products</h2>
+                <a href="products.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card" onclick="openProductDetail(2)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-2.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="sale-badge">-25%</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Fitness Watch</h3>
+                        <div class="product-price">
+                            <span class="current-price">$149.99</span>
+                            <span class="original-price">$199.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openProductDetail(5)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-5.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="featured-badge">Featured</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">4K Action Camera</h3>
+                        <div class="product-price">
+                            <span class="current-price">$199.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openProductDetail(8)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-8.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="featured-badge">Featured</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Wireless Earbuds</h3>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openProductDetail(10)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-10.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="bestseller-badge">#2 Best Seller</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smartphone 5G</h3>
+                        <div class="product-price">
+                            <span class="current-price">$699.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--    RELATED PRODUCTS            -->
+    <!-- ============================== -->
+    <section class="related-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔗 Related Products</h2>
+                <a href="products.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card" onclick="openProductDetail(11)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-11.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="bestseller-badge">#3 Best Seller</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Gaming Monitor</h3>
+                        <div class="product-price">
+                            <span class="current-price">$349.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openProductDetail(3)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-3.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="sale-badge">-40%</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Leather Backpack</h3>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="original-price">$134.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openProductDetail(6)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-6.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="featured-badge">Featured</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mechanical Keyboard</h3>
+                        <div class="product-price">
+                            <span class="current-price">$129.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openProductDetail(14)">
+                    <div class="product-image">
+                        <!-- IMAGE: product-14.jpg -->
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                        <span class="new-badge">New</span>
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Robot Vacuum</h3>
+                        <div class="product-price">
+                            <span class="current-price">$449.99</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--        FOOTER                  -->
+    <!-- ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>PUT <span>XYZ</span></h3>
+                    <p>Your premier destination for high-quality products. We curate the best items to elevate your lifestyle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Affiliate Program</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns & Refunds</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Commerce St, Suite 100</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@putxyz.com</p>
+                    <div class="trust-badges">
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-apple-pay"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+                <p>&copy; 2024 PUT XYZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================== -->
+    <!--        JAVASCRIPT              -->
+    <!-- ============================== -->
+    <script src="main.js"></script>
+</body>
+</html>
